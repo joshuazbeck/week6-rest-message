@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.ordersTable {
+	border: solid black 1px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+body {
+    text-align: center;
+}
+.ordersTableHeader {
+	background: #EEE;
+	
+}
+.ordersTableOddRow {
+	background: #EEE;
+}
+.ordersTableEvenRow {
+	background: white;
+}

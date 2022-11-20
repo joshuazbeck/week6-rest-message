@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:body>
+	<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="content">
+			Hello <h:outputText value="#{user.firstName}"></h:outputText>. Your orders are: <br></br>
+			<h:dataTable value = "#{formController.service.orders}" var = "order"
+			styleClass = "ordersTable"
+			headerClass = "ordersTableHeader"
+			rowClasses = "ordersTableOddRow, ordersTableEvenRow">
+			<h:column>
+				<f:facet name = "header">Order ID</f:facet>
+				#{order.id}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Order Number</f:facet>
+				#{order.orderNumber}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Product Name</f:facet>
+				#{order.productName}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Price</f:facet>
+				#{order.price}
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Quantity</f:facet>
+				#{order.quantity}
+			</h:column>
+			<h:button>Login Again</h:button>
+			</h:dataTable>
+			Last Name: <h:outputText value="#{user.lastName}"></h:outputText><br></br>
+			<h:form>
+				<h:commandButton action="#{formController.onSendOrder()}" value="Send Order"></h:commandButton>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
